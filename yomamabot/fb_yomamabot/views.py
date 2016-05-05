@@ -10,6 +10,7 @@ from django.utils.decorators import method_decorator
 
 #  ------------------------ Fill this with your page access token! -------------------------------
 PAGE_ACCESS_TOKEN = ""
+VERIFY_TOKEN = "2318934571"
 
 jokes = { 'stupid': ["""Yo' Mama is so stupid, she needs a recipe to make ice cubes.""", 
                      """Yo' Mama is so stupid, she thinks DNA is the National Dyslexics Association."""], 
@@ -43,7 +44,7 @@ def post_facebook_message(fbid, recevied_message):
 # Create your views here.
 class YoMamaBotView(generic.View):
     def get(self, request, *args, **kwargs):
-        if self.request.GET['hub.verify_token'] == '2318934571':
+        if self.request.GET['hub.verify_token'] == VERIFY_TOKEN:
             return HttpResponse(self.request.GET['hub.challenge'])
         else:
             return HttpResponse('Error, invalid token')
