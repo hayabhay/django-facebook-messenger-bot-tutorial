@@ -25,7 +25,7 @@ def post_facebook_message(fbid, recevied_message):
     tokens = re.sub(r"[^a-zA-Z0-9\s]",' ',recevied_message).lower().split()
     joke_text = ''
     for token in tokens:
-        if jokes.has_key(token):
+        if token in jokes:
             joke_text = random.choice(jokes[token])
             break
     if not joke_text:
@@ -56,14 +56,14 @@ class YoMamaBotView(generic.View):
     # Post function to handle Facebook messages
     def post(self, request, *args, **kwargs):
         # Converts the text payload into a python dictionary
-        incoming_message = json.loads(self.request.body)
+        incoming_message = json.loads(self.request.body.decode('utf-8'))
         # Facebook recommends going through every entry since they might send
         # multiple messages in a single call during high load
         for entry in incoming_message['entry']:
             for message in entry['messaging']:
                 # Check to make sure the received call is a message call
                 # This might be delivery, optin, postback for other events 
-                if message.has_key('message'):
+                if 'message' in message:
                     # Print the message to the terminal
                     pprint(message)    
                     # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
