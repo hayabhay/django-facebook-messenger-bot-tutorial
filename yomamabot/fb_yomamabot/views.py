@@ -44,10 +44,9 @@ def post_facebook_message(fbid, recevied_message):
 # Create your views here.
 class YoMamaBotView(generic.View):
     def get(self, request, *args, **kwargs):
-        if self.request.GET['hub.verify_token'] == VERIFY_TOKEN:
+        if self.request.GET.get('hub.verify_token', None) == VERIFY_TOKEN:
             return HttpResponse(self.request.GET['hub.challenge'])
-        else:
-            return HttpResponse('Error, invalid token')
+        return HttpResponse('Error, invalid token', status=400)
         
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
