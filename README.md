@@ -6,7 +6,7 @@ This has the starter code for the tutorial I wrote on my Blog.
 
 ## How to use
 
-Run the following commands. You will need Python 2.7 and have [Virtual Environment Wrapper](http://virtualenvwrapper.readthedocs.io/en/latest/) setup.
+Run the following commands. You will need Python 2.7+/3.3+ and have [Virtual Environment Wrapper](http://virtualenvwrapper.readthedocs.io/en/latest/) setup.
 
     git clone https://github.com/abhay1/django-facebook-messenger-bot-tutorial.git
     cd django-facebook-messenger-bot-tutorial
