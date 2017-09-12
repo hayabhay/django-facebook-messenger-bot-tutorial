@@ -16,7 +16,7 @@ Run the following commands. You will need Python 2.7+/3.3+ and have [Virtual Env
     python manage.py runserver
 
 Follow the tutorial to setup Ngrok.
-Edit the `VERIFY_TOKEN` variable in `django-facebook-messenger-bot-tutorial/fb_yomamabot/views.py` to include the Verify token.
+Edit the `VERIFY_TOKEN` variable in `django-facebook-messenger-bot-tutorial/yomamabot/fb_yomamabot/views.py` to include the Verify token.
 It is set to `2318934571` as default that is used in the tutorial. This can be any token as long as it matches the one you tell Facebook.
 
-Once you have your webhook setup, get your Page Access Token. Then set the `PAGE_ACCESS_TOKEN` variable in the file `django-facebook-messenger-bot-tutorial/fb_yomamabot/views.py` to your page access token. 
+Once you have your webhook setup, get your Page Access Token. Then set the `PAGE_ACCESS_TOKEN` variable in the file `django-facebook-messenger-bot-tutorial/yomamabot/fb_yomamabot/views.py` to your page access token. 
